@@ -2,7 +2,7 @@
 Spring 2020 at Olin College. These functions run tests on student solutions
 to the branch and bound implementation on integer programming implementation.'''
 
-from bab_starter import BBTreeNode
+from bab import BBTreeNode
 import picos as pic
 from picos import RealVariable
 
@@ -37,15 +37,15 @@ def problem1():
 def problem2():
     print("Problem 2")
     fail_count = 0
-    x = RealVariable("x") 
-    y = RealVariable("y") 
-    z = RealVariable("z") 
+    x = RealVariable("x")
+    y = RealVariable("y")
+    z = RealVariable("z")
     vars = [x, y, z]
     objective = z
     constraints = [x+y <= 7, 12*x+ 5*y <= 60, x >= 0, y >=0, z == 80 * x + 45 * y]
     root = BBTreeNode(constraints = constraints, objective = objective, vars = vars)
     res, sol_vars = root.bbsolve()
-    
+
     correct_vals = [3.0, 4.0, 420]
 
     check_index = 0
@@ -63,15 +63,15 @@ def problem2():
 def problem3():
     print("Problem 3")
     fail_count = 0
-    x = RealVariable("x") 
-    y = RealVariable("y") 
-    z = RealVariable("z") 
+    x = RealVariable("x")
+    y = RealVariable("y")
+    z = RealVariable("z")
     vars = [x, y, z]
     objective = z
     constraints = [z == 4*x+5*y, 3*x +1 * y <= 27, 6 *x + 4*y >= 6, 5 * x + 5 * y >= 1, x >= 0, y >=0]
     root = BBTreeNode(constraints = constraints, objective = objective, vars = vars)
     res, sol_vars = root.bbsolve()
-    
+
     correct_vals = [0.0, 27.0, 135]
 
     check_index = 0
@@ -89,15 +89,15 @@ def problem3():
 def problem4():
     print("Problem 4")
     fail_count = 0
-    x = RealVariable("x") 
-    y = RealVariable("y") 
-    z = RealVariable("z") 
+    x = RealVariable("x")
+    y = RealVariable("y")
+    z = RealVariable("z")
     vars = [x, y, z]
     objective = z
     constraints = [z == 3*x + 5 * y,2 * x + 4 * y <= 25, x <= 8, x>= 0, y >= 0]
     root = BBTreeNode(constraints = constraints, objective = objective, vars = vars)
     res, sol_vars = root.bbsolve()
-    
+
     correct_vals = [8.0, 2.0, 34]
 
     check_index = 0
@@ -115,15 +115,15 @@ def problem4():
 def problem5():
     print("Problem 5")
     fail_count = 0
-    x = RealVariable("x") 
-    y = RealVariable("y") 
-    z = RealVariable("z") 
+    x = RealVariable("x")
+    y = RealVariable("y")
+    z = RealVariable("z")
     vars = [x, y, z]
     objective = z
     constraints = [z == 5 * x + 6 *y, x + y <= 5, 4*x+7*y <= 28, x>= 0, y >= 0]
     root = BBTreeNode(constraints = constraints, objective = objective, vars = vars)
     res, sol_vars = root.bbsolve()
-    
+
     correct_vals = [3.0, 2.0, 27]
 
     check_index = 0
@@ -141,8 +141,8 @@ def problem5():
 def problem6():
     print("Problem 6")
     fail_count = 0
-    x = RealVariable("x") 
-    y = RealVariable("y") 
+    x = RealVariable("x")
+    y = RealVariable("y")
     z = RealVariable("z")
     a= RealVariable("a")
     b= RealVariable("b")
@@ -152,7 +152,7 @@ def problem6():
     constraints = [z == 15*x + 20 *y + 18* a + 13 * b + 12* c, 18*x+10*y+21*a+11*b+11*c <= 50, x>= 0, y >= 0, a >= 0, b >= 0, c >= 0, x <= 1, y <= 1, a <= 1, b <= 1, c <= 1]
     root = BBTreeNode(constraints = constraints, objective = objective, vars = vars)
     res, sol_vars = root.bbsolve()
-    
+
     correct_vals = [1.0, 1.0, 0.0,1.0, 1.0, 60.0]
 
     check_index = 0
